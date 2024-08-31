@@ -204,6 +204,29 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
+local function DockerFileTypeDetectionAutoCommand()
+  local names = { 'docker-compose', 'compose' }
+  local extensions = { '.yaml', '.yml' }
+  local tbl = {}
+  local i = 1
+
+  for _, name in pairs(names) do
+    for _, ext in pairs(extensions) do
+      tbl[i] = name .. ext
+      i = i + 1
+    end
+  end
+
+  -- vim.api.nvim_create_augroup('DockerFileTypeDetection', { clear = true })
+  vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
+    pattern = tbl,
+    command = 'set filetype=yaml.docker-compose',
+    -- group = 'DockerFileTypeDetection',
+  })
+end
+
+DockerFileTypeDetectionAutoCommand()
+
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
@@ -278,8 +301,6 @@ require('lazy').setup({
   require 'kickstart.plugins.telescope',
 
   require 'kickstart.plugins.lsp',
-
-  require 'kickstart.plugins.autopairs',
   { -- Autoformat
     'stevearc/conform.nvim',
     lazy = false,
@@ -336,9 +357,9 @@ require('lazy').setup({
   --  Uncomment any of the lines below to enable them (you will need to restart nvim).
   --
   -- require 'kickstart.plugins.debug',
-  -- require 'kickstart.plugins.indent_line',
+  require 'kickstart.plugins.indent_line',
   -- require 'kickstart.plugins.lint',
-  -- require 'kickstart.plugins.autopairs',
+  require 'kickstart.plugins.autopairs',
   require 'kickstart.plugins.neo-tree',
   -- require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
 
@@ -347,7 +368,7 @@ require('lazy').setup({
   --
   --  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
   --    For additional information, see `:help lazy.nvim-lazy.nvim-structuring-your-plugins`
-  -- { import = 'custom.plugins' },
+  { import = 'custom.plugins' },
 }, {
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the
