@@ -341,7 +341,8 @@ require('lazy').setup({
   require 'kickstart.plugins.autocomplete',
   -- THEMES
   -- require 'kickstart.plugins.themes.tokyonight',
-  require 'kickstart.plugins.themes.catppuccin',
+  -- require 'kickstart.plugins.themes.catppuccin',
+  require 'kickstart.plugins.themes.nightfox',
   -- Highlight todo, notes, etc in comments
   { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
   require 'kickstart.plugins.mini',
