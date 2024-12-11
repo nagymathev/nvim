@@ -109,7 +109,7 @@ local Languages = {
     ['html'] = {},
     ['emmet_language_server'] = {},
     ['cssls'] = {},
-    ['tsserver'] = {},
+    -- ['tsserver'] = {},
     ['vtsls'] = {},
   },
 }
