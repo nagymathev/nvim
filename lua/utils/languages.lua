@@ -69,9 +69,6 @@ local Languages = {
     },
   },
   ['nix'] = {
-    ['nil_ls'] = {
-      alias = 'nil',
-    },
     nixd = {},
   },
   ['bash'] = {
