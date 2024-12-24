@@ -23,18 +23,18 @@ local Languages = {
       },
       disableLanguageServices = false,
     },
-    basedpyright = {
-      settings = {
-        basedpyright = {
-          analysis = {
-            autoSearchPaths = true,
-            typeCheckingMode = 'basic',
-            diagnosticMode = 'openFilesOnly',
-            useLibraryCodeForTypes = true,
-          },
-        },
-      },
-    },
+    -- basedpyright = {
+    --   settings = {
+    --     basedpyright = {
+    --       analysis = {
+    --         autoSearchPaths = true,
+    --         typeCheckingMode = 'basic',
+    --         diagnosticMode = 'openFilesOnly',
+    --         useLibraryCodeForTypes = true,
+    --       },
+    --     },
+    --   },
+    -- },
   },
   ['go'] = {
     gopls = {
