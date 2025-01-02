@@ -10,31 +10,31 @@ local util = require 'lspconfig.util'
 --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
 local Languages = {
   ['python'] = {
-    pyright = {
-      settings = {
-        python = {
-          analysis = {
-            autoSearchPaths = true,
-            diagnosticMode = 'workspace',
-            useLibraryCodeForTypes = true,
-            autoImportCompletions = true,
-          },
-        },
-      },
-      disableLanguageServices = false,
-    },
-    -- basedpyright = {
+    -- pyright = {
     --   settings = {
-    --     basedpyright = {
+    --     python = {
     --       analysis = {
     --         autoSearchPaths = true,
-    --         typeCheckingMode = 'basic',
-    --         diagnosticMode = 'openFilesOnly',
+    --         diagnosticMode = 'workspace',
     --         useLibraryCodeForTypes = true,
+    --         autoImportCompletions = true,
     --       },
     --     },
     --   },
+    --   disableLanguageServices = false,
     -- },
+    basedpyright = {
+      settings = {
+        basedpyright = {
+          analysis = {
+            autoSearchPaths = true,
+            typeCheckingMode = 'basic',
+            diagnosticMode = 'openFilesOnly',
+            useLibraryCodeForTypes = true,
+          },
+        },
+      },
+    },
   },
   ['go'] = {
     gopls = {
