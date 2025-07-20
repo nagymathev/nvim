@@ -90,6 +90,7 @@ P.S. You can delete this when you're done too. It's your config now! :)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = true
 
@@ -263,7 +264,7 @@ require('lazy').setup({
   --    require('Comment').setup({})
 
   -- "gc" to comment visual regions/lines
-  { 'numToStr/Comment.nvim', opts = {} },
+  { 'numToStr/Comment.nvim',    opts = {} },
 
   -- Here is a more advanced example where we pass configuration
   -- options to `gitsigns.nvim`. This is equivalent to the following Lua:
@@ -342,10 +343,11 @@ require('lazy').setup({
 
   require 'kickstart.plugins.autocomplete',
   -- THEMES
-  -- require 'kickstart.plugins.themes.tokyonight',
-  -- require 'kickstart.plugins.themes.catppuccin',
+  require 'kickstart.plugins.themes.tokyonight',
+  require 'kickstart.plugins.themes.catppuccin',
   require 'kickstart.plugins.themes.nightfox',
   require 'custom.plugins.themes.bluloco',
+  require 'custom.plugins.themes.gruvbox',
   -- Highlight todo, notes, etc in comments
   { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
   require 'kickstart.plugins.mini',
