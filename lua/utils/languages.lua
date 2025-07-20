@@ -9,106 +9,119 @@ local util = require 'lspconfig.util'
 --  - settings (table): Override the default settings passed when initializing the server.
 --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
 local Languages = {
-  ['python'] = {
-    -- pyright = {
-    --   settings = {
-    --     python = {
-    --       analysis = {
-    --         autoSearchPaths = true,
-    --         diagnosticMode = 'workspace',
-    --         useLibraryCodeForTypes = true,
-    --         autoImportCompletions = true,
-    --       },
-    --     },
-    --   },
-    --   disableLanguageServices = false,
-    -- },
-    basedpyright = {
-      settings = {
+    ['python'] = {
+        -- pyright = {
+        --   settings = {
+        --     python = {
+        --       analysis = {
+        --         autoSearchPaths = true,
+        --         diagnosticMode = 'workspace',
+        --         useLibraryCodeForTypes = true,
+        --         autoImportCompletions = true,
+        --       },
+        --     },
+        --   },
+        --   disableLanguageServices = false,
+        -- },
         basedpyright = {
-          analysis = {
-            autoSearchPaths = true,
-            typeCheckingMode = 'basic',
-            diagnosticMode = 'openFilesOnly',
-            useLibraryCodeForTypes = true,
-          },
+            settings = {
+                basedpyright = {
+                    analysis = {
+                        autoSearchPaths = true,
+                        typeCheckingMode = 'basic',
+                        diagnosticMode = 'openFilesOnly',
+                        useLibraryCodeForTypes = true,
+                    },
+                },
+            },
         },
-      },
     },
-  },
-  ['go'] = {
-    gopls = {
-      settings = {
+    ['go'] = {
         gopls = {
-          analyses = {
-            unusedparams = true,
-          },
-          staticcheck = true,
-          hints = {
-            rangeVariableTypes = true,
-            parameterNames = true,
-            constantValues = true,
-            assignVariableTypes = true,
-            compositeLiteralFields = true,
-            compositeLiteralTypes = true,
-            functionTypeParameters = true,
-          },
-          gofumpt = true,
+            settings = {
+                gopls = {
+                    analyses = {
+                        unusedparams = true,
+                    },
+                    staticcheck = true,
+                    hints = {
+                        rangeVariableTypes = true,
+                        parameterNames = true,
+                        constantValues = true,
+                        assignVariableTypes = true,
+                        compositeLiteralFields = true,
+                        compositeLiteralTypes = true,
+                        functionTypeParameters = true,
+                    },
+                    gofumpt = true,
+                },
+            },
         },
-      },
     },
-  },
-  ['rust'] = {
-    rust_analyzer = {
-      alias = 'rust-analyzer',
-    },
-  },
-  ['markdown'] = {
-    markdown_oxide = {
-      alias = 'markdown-oxide',
-    },
-  },
-  ['nix'] = {
-    nixd = {},
-  },
-  ['bash'] = {
-    bashls = {
-      alias = 'bash-language-server',
-    },
-  },
-  ['docker'] = {
-    dockerls = {
-      alias = 'docker-langserver',
-    },
-    docker_compose_language_service = {
-      alias = 'docker-compose-langserver',
-    },
-  },
-  ['lua'] = {
-    lua_ls = {
-      -- cmd = {...},
-      -- filetypes = { ...},
-      -- capabilities = {},
-      alias = 'lua-language-server',
-      settings = {
-        Lua = {
-          completion = {
-            callSnippet = 'Replace',
-          },
-          -- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
-          -- diagnostics = { disable = { 'missing-fields' } },
+    ['rust'] = {
+        rust_analyzer = {
+            alias = 'rust-analyzer',
         },
-      },
     },
-    stylua = nil,
-  },
-  ['web'] = {
-    ['html'] = {},
-    ['emmet_language_server'] = {},
-    ['cssls'] = {},
-    -- ['tsserver'] = {},
-    ['vtsls'] = {},
-  },
+    ['markdown'] = {
+        markdown_oxide = {
+            alias = 'markdown-oxide',
+        },
+    },
+    ['nix'] = {
+        nixd = {
+            settings = {
+                nixd = {
+                    formatting = {
+                        command = { "nixfmt" },
+                    },
+                },
+            },
+        },
+    },
+    ['bash'] = {
+        bashls = {
+            alias = 'bash-language-server',
+        },
+    },
+    ['docker'] = {
+        dockerls = {
+            alias = 'docker-langserver',
+        },
+        docker_compose_language_service = {
+            alias = 'docker-compose-langserver',
+        },
+    },
+    ['lua'] = {
+        lua_ls = {
+            -- cmd = {...},
+            -- filetypes = { ...},
+            -- capabilities = {},
+            alias = 'lua-language-server',
+            settings = {
+                Lua = {
+                    completion = {
+                        callSnippet = 'Replace',
+                    },
+                    -- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
+                    -- diagnostics = { disable = { 'missing-fields' } },
+                    -- workspace = {
+                    --     library = {
+                    --         "${3rd}/love2d/library",
+                    --     },
+                    -- },
+                },
+            },
+        },
+        stylua = nil,
+    },
+    ['web'] = {
+        ['html'] = {},
+        ['emmet_language_server'] = {},
+        ['cssls'] = {},
+        -- ['tsserver'] = {},
+        ['vtsls'] = {},
+    },
 }
 
 return Languages
